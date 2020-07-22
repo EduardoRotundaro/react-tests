@@ -1,0 +1,90 @@
+@mixin extra-small-devices {
+    @media only screen and (max-width: ($small-devices-breakpoint - 1px)) {
+        @content;
+    }
+}
+
+@mixin small-devices {
+    @media only screen and (min-width: $small-devices-breakpoint) {
+        @content;
+    }
+}
+
+@mixin medium-devices {
+    @media only screen and (min-width: $medium-devices-breakpoint) {
+        @content;
+    }
+}
+
+@mixin large-devices {
+    @media only screen and (min-width: $large-devices-breakpoint) {
+        @content;
+    }
+}
+
+@mixin extra-large-devices {
+    @media only screen and (min-width: $extra-large-devices-breakpoint) {
+        @content;
+    }
+}
+
+@mixin full-hd-devices {
+    @media only screen and (min-width: $full-hd-devices-breakpoint) {
+        @content;
+    }
+}
+
+@mixin on-event($self: false) {
+    @if $self {
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    } @else {
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    }
+}
+
+@mixin print-only {
+    display: none !important;
+    @media print {
+        display: block !important;
+    }
+}
+
+@mixin hide-on-print {
+    @media print {
+        display: none !important;
+    }
+}
+
+@mixin clearfix {
+    &::after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+}
+
+@mixin cover-background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@mixin truncate-text($overflow: ellipsis){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: $overflow;
+}
+
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
